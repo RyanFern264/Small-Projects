@@ -1,8 +1,5 @@
-from tabnanny import check
 from tkinter import *
-
-from clyent import color
-
+import time
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -17,19 +14,16 @@ LONG_BREAK_MIN = 20
 def timer_reset():
     pass
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
-timer_secs = 0
-timer_mins = 0
 def timer():
-    global timer_secs
-    global timer_mins
-    global timer_text_canvas
-    timer_secs += 1
-    if timer_secs == 60:
-        timer_mins += 1
-    timer_text = str(timer_mins) + ":" + str(timer_secs)
-    canvas.itemconfig(timer_text_canvas, text=timer_text)
-     #config(text=timer_text))
-    return timer_text
+    t = 0
+    while t<6:
+        mins, secs = divmod(t, 60)
+        curr_time = '{:02d}:{:02d}'.format(mins, secs)
+        print(curr_time)
+        canvas.itemconfig(timer_text_canvas, text=curr_time)
+        time.sleep(1)
+        t += 1
+        window.after(1000, timer)
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 
 # ---------------------------- UI SETUP ------------------------------- #
