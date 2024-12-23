@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b3b47c31-6863-4726-b0f7-633399dde69c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../password-manager-start/cred_storage.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../password-manager-start/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../password-manager-start/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +28,8 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Coding/Git/Small-Projects/password-manager-start"
+    "last_opened_file_path": "D:/Coding/Git/Small-Projects/flash-card-project",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="SharedIndexes">
