@@ -5,9 +5,10 @@ from spotipy.oauth2 import SpotifyOAuth
 
 scope = "playlist-modify-private"
 
+#spotify authenticator using my env vars
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
-
+#made a function so that I can call it back in case the date fails
 def create_playlist():
     time_period = input("What year do you want to travel to? Type the date in the format:YYYY-MM-DD\n")
 
@@ -18,12 +19,14 @@ def create_playlist():
     top_100_page = request.text
 
     soup = BeautifulSoup(top_100_page, "html.parser")
-    song_titles_spans = soup.select("li ul li h3")
+    song_titles_spans = soup.select("li ul li h3") #getting song names
     song_names = [song.getText().strip() for song in song_titles_spans]
 
+    #if song names actually populated, seems like sometimes it doesn't randomly depending on date?
     if song_names:
         track_uris = []
 
+        #searching for song URIs based on the name
         for song in song_names:
             search_results = sp.search(q=song, limit=1, type="track")
             track_uris.append(search_results['tracks']['items'][0]['uri'])
@@ -37,6 +40,7 @@ def create_playlist():
         playlist_id = playlist["id"]
         print(playlist_id)
 
+        #populate the playlist with the songs provided
         try:
             sp.playlist_add_items(playlist_id, track_uris)
             print("Track(s) added successfully!")
